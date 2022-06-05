@@ -30,8 +30,6 @@ def upload():
         photo.save(request.files['file'], 'img1', fileName)#保存图片
 		#发送图片
         img = open(path, 'rb')#读取图片文件
-        # data = base64.b64encode(img.read()).decode()#进行base64编码
-        print(img.name)
         return img.name
 
 def getLoginDetails():    #获取用户登录状态
@@ -61,8 +59,6 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        user_socket = request.environ.get('wsgi.websocket')
-        user_dict[email] = user_socket
         if is_valid(email, str(password)):
             session['email'] = email
             flash('登录成功')
@@ -104,7 +100,6 @@ def register():
     else:
         return render_template('register.html')
 
-# 
 @app.route("/index", methods = ['POST', 'GET'])
 def index():
     if 'email' not in session:
@@ -153,15 +148,6 @@ def chatroom():
 def connect():
     print('加入聊天成功')
     users.append(request.sid)
-
-#加入房间
-@socketio.on('joined', namespace='/chatroom')
-def joined(information):
-    # 'joined'路由是传入一个room_name,给该websocket连接分配房间,返回一个'status'路由
-    room_name = 'chat room'
-    user_name = session.get('user')
-    join_room(room_name)
-    emit('status', {'server_to_client': user_name + ' enter the room'}, room=room_name)
 
 #接收聊天信息
 @socketio.on('text', namespace='/chatroom')
