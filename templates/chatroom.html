@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>唠嗑</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" style="height: 80px;width:80px" src={{
+                                avatar_url[0][0] }} />
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">{{userName}}</span>
+                            </a>
+
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+
+
+                    <li class="active">
+                        <a href="/index"><i class="fa fa-address-card"></i> <span class="nav-label">联系人</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="/chatroom"><i class="fa fa-wechat"></i> <span class="nav-label">聊天室</span></a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
+                                class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="" class="form-control" name="top-search"
+                                    id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">欢迎您，{{ userName }}</span>
+                        </li>
+                        <li>
+                            <a href="/logout">
+                                <i class="fa fa-sign-out"></i> 注销
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div class="row wrapper border-bottom white-bg page-heading">
+                <div class="col-lg-10">
+                    <h2>聊天窗口</h2>
+                </div>
+                <div class="col-lg-2">
+
+                </div>
+            </div>
+
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="ibox chat-view">
+
+                            <div class="ibox-title">
+                                <small class="float-right text-muted"> 聊天室面板</small>
+
+                            </div>
+                            <div class="ibox-content">
+
+                                <div class="row">
+                                    <div class="col-md-9 ">
+                                        <div class="chat-discussion">
+                                            {% for row in message %}
+                                                {% if row[0][0] == 'none' %}
+                                                <div class="chat-message left">
+                                                    <img class="message-avatar" src={{ row[3] }} alt="">
+                                                    <div class="message">
+                                                        <a class="message-author"> {{ row[2] }} </a>
+                                                        <span class="message-date"> {{ row[1]}} </span>
+                                                        <span class="message-content">{{ row[0][1] }}</span>
+                                                    </div>
+                                                </div>
+                                                {% else %}
+                                                <div class='chat-message left'>
+                                                    <img class='message-avatar' src={{ row[3] }}  alt=''>
+                                                    <div class='message'>
+                                                        <a class='message-author'>{{ row[2] }} </a> 
+                                                        <span class='message-date'>{{ row[1]}} </span>
+                                                        <span class='message-content'> 
+                                                            {{ row[0][1] }}
+                                                            <img src={{ row[0][0] }} class='imgchat' style='height: 100px;width:100px' />
+                                                        </span> 
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="chat-users">
+                                            <div class="users-list">
+
+                                                {% for row in users %}
+                                                <div class="chat-user">
+                                                    <span class="float-right label label-primary">在线</span>
+                                                    <img class="chat-avatar" src={{ row[1] }} />
+                                                    <div class="chat-user-name">
+                                                        <a href="#">{{row[0]}}</a>
+                                                    </div>
+                                                </div>
+
+                                                {% endfor %}
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+                                        <div class="chat-message-form">
+                                            <a class="fa fa-smile-o fa-2x"
+                                                style="margin-top: 12px;margin-left: 12px"></a>
+                                            <select style="margin-left: 0;outline: none;border: none" id="Emoji">
+                                                <option selected="selected" value="0">&#128512;</option>
+                                                <option value="&#128513;">&#128513;</option>
+                                                <option value="&#128514;">&#128514;</option>
+                                                <option value="&#128515;">&#128515;</option>
+                                                <option value="&#128516;">&#128516;</option>
+                                                <option value="&#128517;">&#128517;</option>
+                                                <option value="&#128518;">&#128518;</option>
+                                                <option value="&#128519;">&#128519;</option>
+                                                <option value="&#128520;">&#128520;</option>
+                                                <option value="&#128521;">&#128521;</option>
+                                                <option value="&#128522;">&#128522;</option>
+                                                <option value="&#128523;">&#128523;</option>
+                                                <option value="&#128524;">&#128524;</option>
+                                                <option value="&#128525;">&#128525;</option>
+                                                <option value="&#128526;">&#128526;</option>
+                                                <option value="&#128527;">&#128527;</option>
+                                                <option value="&#128528;">&#128528;</option>
+                                                <option value="&#128529;">&#128529;</option>
+                                                <option value="&#128530;">&#128530;</option>
+                                                <option value="&#128531;">&#128531;</option>
+                                                <option value="&#128532;">&#128532;</option>
+                                                <option value="&#128533;">&#128533;</option>
+                                                <option value="&#128534;">&#128534;</option>
+                                                <option value="&#128535;">&#128535;</option>
+                                                <option value="&#128536;">&#128536;</option>
+                                                <option value="&#128537;">&#128537;</option>
+                                                <option value="&#128538;">&#128538;</option>
+                                                <option value="&#128539;">&#128539;</option>
+                                                <option value="&#128540;">&#128540;</option>
+                                                <option value="&#128541;">&#128541;</option>
+                                                <option value="&#128542;">&#128542;</option>
+                                                <option value="&#128543;">&#128543;</option>
+                                                <option value="&#128544;">&#128544;</option>
+                                                <option value="&#128545;">&#128545;</option>
+                                                <option value="&#128546;">&#128546;</option>
+                                                <option value="&#128547;">&#128547;</option>
+                                                <option value="&#128548;">&#128548;</option>
+                                                <option value="&#128549;">&#128549;</option>
+                                            </select>
+                                            <button href="#" class="fa fa-file-picture-o "
+                                                style="margin-top: 12px;margin-left: 12px; border: none;color: orange;background: none"
+                                                onclick="selectFile();"></button>
+                                            <input type="file" id="file"
+                                                style="filter:alpha(opacity=0);opacity:0;width: 0;height: 0;" />
+
+                                            <div class="form-group">
+
+                                                <input type="text" class="enter" id="enter"
+                                                    style="margin-top: 10px;height: 150px;width: 75%; border: none;padding-top:0px;outline:none"
+                                                    placeholder="输入聊天消息" value="">
+                                                <br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="" alt="聊天图片" id="msg-img" style="height: 300px; width: auto; display: none;">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <script src="../static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="../static/js/inspinia.js"></script>
+    <script src="../static/js/plugins/pace/pace.min.js"></script>
+    <script src="../static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script> -->
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var log = function () {
+            console.log.apply(console, arguments)
+        }
+
+        var socket;
+        var current_channel = ''
+        let filepath = ''
+        const from = new FormData()
+        var clear_board = function () {
+            $('.enter').val('');
+            log('清空')
+        }
+
+        $(document).ready(function () {
+            //创建实例
+            let websocket_url = `${location.protocol}//${document.domain}:${location.port}/chatroom`;
+            socket = io.connect(websocket_url);
+            socket.on('connect', function () {
+                log('连接成功');
+            });
+
+            socket.on('message', function (data) {
+                const Username = data.user_name
+                const text = data.text
+                const create_time = data.create_time
+                const avatar_url = data.avatar_url
+                const img = data.img
+                if (img) {
+                    $(".chat-discussion").append(
+                        "<div class='chat-message left'> <img class='message-avatar' src=" +
+                        avatar_url + " alt='' > <div class='message'><a class='message-author' > " +
+                        Username + "</a> <span class='message-date'>" + create_time +
+                        " </span><span class='message-content'> <img src='" + img +
+                        "' class='imgchat' style='height: 100px;width:100px'/>" + text +
+                        "</span> </div> </div>");
+                    $(".img").attr("src", '');
+                } else {
+                    $(".chat-discussion").append(
+                        "<div class='chat-message left'> <img class='message-avatar' src=" +
+                        avatar_url + " alt='' > <div class='message'><a class='message-author' > " +
+                        Username + "</a> <span class='message-date'>" + create_time +
+                        " </span><span class='message-content'>" + text + "</span> </div> </div>");
+                }
+            });
+
+            $('.enter').keypress(function (e) {
+                var code = e.keyCode || e.which;
+                if (code == 13) {
+                    //获取聊天框聊天内容
+                    var Texttext = $('.enter').val();
+                    //清空聊天框
+                    $('.enter').val('');
+                    $("#msg-img")[0].style.display = 'none'
+                    from.delete('file')
+                    //向后端发送聊天内容
+                    socket.emit('text', {
+                        'text': Texttext,
+                        'img': filepath
+                    });
+                    filepath = ''
+                }
+            });
+            $('#Emoji').change(function () {
+                $("#Emoji").val(); //获取当前选择项的值.
+                var options = $("#Emoji option:selected"); //获取当前选择项.
+                options.val(); //获取当前选择项的值.
+                $('.enter').val($('.enter').val() + options.val());
+            })
+
+        });
+
+        function selectFile() {
+            //触发 文件选择的click事件
+            $("#file").trigger("click");
+        }
+
+        /* 获取 文件的路径 ，用于测试*/
+        $("#file").change(function () {
+            from.append('file', $(this)[0].files[0])
+            $.ajax({
+                url: "/upload_img",
+                type: "POST",
+                data: from,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    $("#msg-img")[0].style.display = 'block'
+                    filepath = data
+                    $("#msg-img")[0].src = data
+                }
+            })
+        })
+    </script>
+
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js">
+    </script>
+    <script>
+        /*https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json*/
+        L2Dwidget.init({
+            "model": {
+                jsonPath: "https://unpkg.com/live2d-widget-model-shizuku@1.0.5/assets/shizuku.model.json",
+                "scale": 1
+            },
+            "display": {
+                "position": "right",
+                "width": 110,
+                "height": 150,
+                "hOffset": 0,
+                "vOffset": -20
+            },
+            "mobile": {
+                "show": true,
+                "scale": 0.5
+            },
+            "react": {
+                "opacityDefault": 0.8,
+                "opacityOnHover": 0.1
+            }
+        });
+    </script>
+</body>
+
+</html>

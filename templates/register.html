@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>唠嗑</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../static/css/custom.css" rel="stylesheet">
+    <link href="../static/css/animate.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg" background="../static/images/register.jpg">
+{% with messages = get_flashed_messages() %}
+         {% if messages %}
+               {% for message in messages %}
+               		<p>{{ message }}</p>
+               {% endfor %}
+         {% endif %}
+      {% endwith %}
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+
+                <h1 class="logo-name">IN+</h1>
+
+            </div>
+            <h3>注册平台账户</h3>
+            <p>创建账户以查看更多好玩功能</p>
+            <form class="m-t" role="form" action="/register" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="用户名" required="" name="name">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="电子邮件" required="" name="email">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="密码" required="" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary block full-width m-b">注册</button>
+
+                <p class="text-muted text-center"><small>已经有一个帐户?</small></p>
+                <a class="btn btn-sm btn-white btn-block" href="/">登录</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Mainly scripts -->
+    <script src="../static/js/jquery-3.1.1.min.js"></script>
+    <script src="../static/js/popper.min.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+    <!-- iCheck -->
+    <script src="../static/js/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+              });
+           $("button").click(function(){
+               var email = $(".m-t input[name = email]").val();
+               var name = $(".m-t input[name = name]").val();
+               var password = $(".m-t input[name = password]").val();
+               if( name == undefined || name.length < 1) {
+                   conmon_ops.alert("用户名不合法");
+                    return;
+               }
+               if( password == undefined ||password.length < 1){
+                   conamon_ops.alert("请输入正确的登录信息");
+                   return;
+               }
+               if(email == undefined ||email.length < 1){
+                   conamon_ops.alert("请输入正确的登录信息");
+                   return;
+               }
+
+               $.ajax({
+                   url:common_ops.buildurl("/register"),
+                   type : "POST",
+                   data: {'name ' : name , 'password' : password, 'email' : email},
+                   dataType : 'json' ,
+                   success:function (res) {
+                   var callback = null;
+                   if( res.code == 200){
+                       callback = function(){
+                        window.location.href = common_ops.buildUrl("/");
+                        common_ops.alert(res.msg,callback)
+                       }
+                   }
+                },
+                })
+            })
+    </script>
+</body>
+
+</html>
