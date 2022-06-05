@@ -1,8 +1,7 @@
-from fileinput import filename
 from flask import Flask, session, request, redirect, url_for, render_template, flash
 from flask_socketio import SocketIO, emit, join_room
 from flask_uploads import configure_uploads,UploadSet
-import os, base64, query, datetime, hashlib, time
+import os, query, datetime, hashlib, time
 
 app = Flask(__name__)   #定义模块名字为APP
 app.config.update({     #配置APP模块
@@ -11,6 +10,7 @@ app.config.update({     #配置APP模块
     'SECRET_KEY': os.urandom(10)
 })
 socketio = SocketIO(app)
+
 user_dict = {}
 users = []
 

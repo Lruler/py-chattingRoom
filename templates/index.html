@@ -22,138 +22,141 @@
 
     <div id="wrapper">
 
-    <nav class="navbar-default navbar-static-side" role="navigation">
-        <div class="sidebar-collapse">
-            <ul class="nav metismenu" id="side-menu">
-                <li class="nav-header">
-                    <div class="dropdown profile-element">
-                        <img alt="image" class="rounded-circle" id="ft_img" style="height: 80px;width:80px" src={{ avatar_url }}/>
-                        <div class="s_box" id="sbox">
-            <div class="header">
-                <p>更换头像</p>
-                <span class="close" id="close">x</span>
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <img alt="image" class="rounded-circle" id="ft_img" style="height: 80px;width:80px" src={{
+                                avatar_url }} />
+                            <div class="s_box" id="sbox">
+                                <div class="header">
+                                    <p>更换头像</p>
+                                    <span class="close" id="close">x</span>
+                                </div>
+                                <hr width="80%" color="#e0e0eb" />
+                                <div id="t_img">
+                                    <img src="../static/images/001.jpg" style="height: 80px; width:80px" />
+                                    <img src="../static/images/002.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/003.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/004.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/005.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/006.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/007.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/008.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/009.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/010.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/011.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/012.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/013.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/014.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/015.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/016.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/017.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/018.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/019.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/020.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/021.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/022.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/023.jpg" style="height: 80px;width:80px" />
+                                    <img src="../static/images/024.jpg" style="height: 80px;width:80px" />
+                                </div>
+                                <hr width="80%" color="#e0e0eb" />
+                                <div class="bt_box">
+                                    <a class="gb" href="javascript:" id="hide">关闭</a>
+                                    <a class="queren" href="javascript:" id="but">保存头像</a>
+                                </div>
+                            </div>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="block m-t-xs font-bold">{{ userName }} </span>
+
+                            </a>
+                        </div>
+                        <div class="logo-element">
+                            IN+
+                        </div>
+                    </li>
+
+                    <li class="active">
+                        <a href="/index"><i class="fa fa-address-card"></i> <span class="nav-label">联系人</span></a>
+                    </li>
+                    <li class="active">
+                        <a href="/chatroom"><i class="fa fa-wechat"></i> <span class="nav-label">聊天室</span></a>
+                    </li>
+
+                </ul>
+
             </div>
-            <hr width="80%" color="#e0e0eb"/>
-              <div id="t_img">
-                  <img src="../static/images/001.jpg" style="height: 80px; width:80px"/>
-                   <img src="../static/images/002.jpg" style="height: 80px;width:80px"/>
-                    <img src="../static/images/003.jpg" style="height: 80px;width:80px"/>
-                     <img src="../static/images/004.jpg" style="height: 80px;width:80px"/>
-                      <img src="../static/images/005.jpg" style="height: 80px;width:80px"/>
-                       <img src="../static/images/006.jpg" style="height: 80px;width:80px"/>
-                       <img src="../static/images/007.jpg" style="height: 80px;width:80px"/>
-                        <img src="../static/images/008.jpg" style="height: 80px;width:80px"/>
-                         <img src="../static/images/009.jpg" style="height: 80px;width:80px"/>
-                          <img src="../static/images/010.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/011.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/012.jpg" style="height: 80px;width:80px"/>
-                   <img src="../static/images/013.jpg" style="height: 80px;width:80px"/>
-                       <img src="../static/images/014.jpg" style="height: 80px;width:80px"/>
-                       <img src="../static/images/015.jpg" style="height: 80px;width:80px"/>
-                        <img src="../static/images/016.jpg" style="height: 80px;width:80px"/>
-                         <img src="../static/images/017.jpg" style="height: 80px;width:80px"/>
-                          <img src="../static/images/018.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/019.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/020.jpg" style="height: 80px;width:80px"/>
-                   <img src="../static/images/021.jpg" style="height: 80px;width:80px"/>
-                          <img src="../static/images/022.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/023.jpg" style="height: 80px;width:80px"/>
-                           <img src="../static/images/024.jpg" style="height: 80px;width:80px"/>
-              </div>
-            <hr width="80%" color="#e0e0eb"/>
-            <div class="bt_box">
-                <a class="gb" href="javascript:" id="hide">关闭</a>
-                <a class="queren" href="javascript:" id="but">保存头像</a>
-            </div>
-        </div>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="block m-t-xs font-bold">{{ userName }} </span>
-
-                        </a>
-                    </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
-                </li>
-
-                <li class="active">
-                    <a href="/index"><i class="fa fa-address-card"></i> <span class="nav-label">联系人</span></a>
-                </li>
-                   <li class="active">
-                    <a href="/chatroom"><i class="fa fa-wechat"></i> <span class="nav-label">聊天室</span></a>
-                </li>
-
-            </ul>
-
-        </div>
-    </nav>
+        </nav>
 
         <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-            <form role="search" class="navbar-form-custom" action="search_results.html">
-                <div class="form-group">
-                    <input type="text" placeholder="联系人" class="form-control" name="top-search" id="top-search">
-                </div>
-            </form>
-        </div>
-            <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">欢迎您！{{ userName }}</span>
-                </li>
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i
+                                class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="联系人" class="form-control" name="top-search"
+                                    id="top-search">
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message">欢迎您！{{ userName }}</span>
+                        </li>
 
-                <li>
-                     <a href="/logout">
-                    <i class="fa fa-sign-out"></i> 注销
-                </a>
-                </li>
-            </ul>
+                        <li>
+                            <a href="/logout">
+                                <i class="fa fa-sign-out"></i> 注销
+                            </a>
+                        </li>
+                    </ul>
 
-        </nav>
-        </div>
+                </nav>
+            </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-9">
                     <h2>通讯录</h2>
                 </div>
             </div>
-        <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-               {% for row in users %}
-            <div class="col-lg-3">
-                <div class="contact-box center-version">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                    {% for row in users %}
+                    <div class="col-lg-3">
+                        <div class="contact-box center-version">
 
-                    <a href="#"">
+                            <a href="#"">
 
-                        <img alt="image" class="rounded-circle" src={{ row[1] }}>
+                        <img alt=" image" class="rounded-circle" src={{ row[1] }}>
 
 
-                        <h3 class="m-b-xs"><strong>{{row[0]}}</strong></h3>
+                                <h3 class="m-b-xs"><strong>{{row[0]}}</strong></h3>
 
-                        <address class="m-t-md">
-                            <strong>联系方式</strong><br>
-                            邮箱 {{ row[2] }}<br>
-                        </address>
+                                <address class="m-t-md">
+                                    <strong>联系方式</strong><br>
+                                    邮箱 {{ row[2] }}<br>
+                                </address>
 
-                    </a>
-                    <div class="contact-box-footer">
-                      <div class="m-t-xs btn-group">
-                          <a href=""  class="btn btn-xs btn-white"><i class="fa fa-phone"></i> 呼叫Ta </a>
-                           <a href=""  class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> 发信息</a>
+                            </a>
+                            <div class="contact-box-footer">
+                                <div class="m-t-xs btn-group">
+                                    <a href="" class="btn btn-xs btn-white"><i class="fa fa-phone"></i> 呼叫Ta </a>
+                                    <a href="" class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> 发信息</a>
 
-                      </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                    {% endfor %}
 
                 </div>
             </div>
-  {% endfor %}
 
         </div>
-        </div>
-
-        </div>
-        </div>
+    </div>
 
     <!-- Mainly scripts -->
     <script src="../static/js/jquery-3.1.1.min.js"></script>
@@ -161,57 +164,54 @@
     <script src="../static/js/bootstrap.js"></script>
     <script src="../static/js/jquery.metisMenu.js"></script>
     <script src="../static/js/jquery.slimscroll.min.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="../static/js/inspinia.js"></script>
-    <script src="../static/js/plugins/pace/pace.min.js"></script>
-    <!--对话框-->
-<script src="../static/js/jquery-confirm.min.js"></script>
-<script type="text/javascript" src="../static/js/main.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
-<script type="text/javascript">
-     var newurl;
-     $("#ft_img").click(function(){
-                     $("#sbox").show("slow");
-     });
-              $("#hide").click(function(){
-                     $("#sbox").hide("slow");
-              });
-              $("#close").click(function(){
-                     $("#sbox").hide("slow");
-              });
-            /*  选定图像获取图像src值 */
+    <script src="../static/js/jquery-confirm.min.js"></script>
+    <script type="text/javascript" src="../static/js/main.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+    
+    <script type="text/javascript">
+        var newurl;
+        $("#ft_img").click(function () {
+            $("#sbox").show("slow");
+        });
+        $("#hide").click(function () {
+            $("#sbox").hide("slow");
+        });
+        $("#close").click(function () {
+            $("#sbox").hide("slow");
+        });
+        /*  选定图像获取图像src值 */
         var $t_img = document.getElementById('t_img');
         var $img = $t_img.getElementsByTagName('img');
         var index = 0;
-        for(var i = 0; i<$img.length;i++){
-            $img[i].index=i;
-            $img[i].onclick = function(){
-                $img[index].style.borderRadius="15%";
-                $img[index].style.border="none"
-                this.style.borderRadius="50%";
-                this.style.border="1px solid red"
+        for (var i = 0; i < $img.length; i++) {
+            $img[i].index = i;
+            $img[i].onclick = function () {
+                $img[index].style.borderRadius = "15%";
+                $img[index].style.border = "none"
+                this.style.borderRadius = "50%";
+                this.style.border = "1px solid red"
                 index = this.index;
                 var $newsrc = $img[index].src;
                 newurl = $newsrc;
-                $(".t_img").attr('src',$newsrc);
+                $(".t_img").attr('src', $newsrc);
 
             }
         }
-  //点击确认修改按钮更换头像
-        $("#but").click(function(){
+        //点击确认修改按钮更换头像
+        $("#but").click(function () {
             $("#sbox").hide("slow");
-             let websocket_url = `${location.protocol}//${document.domain}:${location.port}/index`;
-             socket = io.connect(websocket_url);
-             socket.on('Iconnect', function() {
-             console.log('连接成功');   });
-             socket.emit('avatar_url', {'avatar_url': newurl});
-             setTimeout(() => {
+            let websocket_url = `${location.protocol}//${document.domain}:${location.port}/index`;
+            socket = io.connect(websocket_url);
+            socket.on('Iconnect', function () {
+                console.log('连接成功');
+            });
+            socket.emit('avatar_url', { 'avatar_url': newurl });
+            setTimeout(() => {
                 location.reload()
-             }, 1000)
+            }, 1000)
         })
-</script>
+    </script>
 
 </body>
 

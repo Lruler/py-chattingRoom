@@ -17,32 +17,28 @@
 </head>
 
 <body class="gray-bg" background="../static/images/register.jpg">
-{% with messages = get_flashed_messages() %}
-         {% if messages %}
-               {% for message in messages %}
-               		<p>{{ message }}</p>
-               {% endfor %}
-         {% endif %}
-      {% endwith %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
 
     <div class="middle-box text-center loginscreen   animated fadeInDown">
         <div>
             <div>
-
-                <h1 class="logo-name">IN+</h1>
-
+                <h1 class="logo-name">唠</h1>
             </div>
-            <h3>注册平台账户</h3>
-            <p>创建账户以查看更多好玩功能</p>
             <form class="m-t" role="form" action="/register" method="post">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="用户名" required="" name="name">
+                    <input autocomplete="off" type="text" class="form-control" placeholder="用户名" required="" name="name">
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="电子邮件" required="" name="email">
+                    <input autocomplete="off" type="email" class="form-control" placeholder="电子邮件" required="" name="email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="密码" required="" name="password">
+                    <input autocomplete="off" type="password" class="form-control" placeholder="密码" required="" name="password">
                 </div>
 
                 <button type="submit" class="btn btn-primary block full-width m-b">注册</button>
@@ -60,45 +56,45 @@
     <!-- iCheck -->
     <script src="../static/js/icheck.min.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.i-checks').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green',
             });
-              });
-           $("button").click(function(){
-               var email = $(".m-t input[name = email]").val();
-               var name = $(".m-t input[name = name]").val();
-               var password = $(".m-t input[name = password]").val();
-               if( name == undefined || name.length < 1) {
-                   conmon_ops.alert("用户名不合法");
-                    return;
-               }
-               if( password == undefined ||password.length < 1){
-                   conamon_ops.alert("请输入正确的登录信息");
-                   return;
-               }
-               if(email == undefined ||email.length < 1){
-                   conamon_ops.alert("请输入正确的登录信息");
-                   return;
-               }
+        });
+        $("button").click(function () {
+            var email = $(".m-t input[name = email]").val();
+            var name = $(".m-t input[name = name]").val();
+            var password = $(".m-t input[name = password]").val();
+            if (name == undefined || name.length < 1) {
+                conmon_ops.alert("用户名不合法");
+                return;
+            }
+            if (password == undefined || password.length < 1) {
+                conamon_ops.alert("请输入正确的登录信息");
+                return;
+            }
+            if (email == undefined || email.length < 1) {
+                conamon_ops.alert("请输入正确的登录信息");
+                return;
+            }
 
-               $.ajax({
-                   url:common_ops.buildurl("/register"),
-                   type : "POST",
-                   data: {'name ' : name , 'password' : password, 'email' : email},
-                   dataType : 'json' ,
-                   success:function (res) {
-                   var callback = null;
-                   if( res.code == 200){
-                       callback = function(){
-                        window.location.href = common_ops.buildUrl("/");
-                        common_ops.alert(res.msg,callback)
-                       }
-                   }
+            $.ajax({
+                url: common_ops.buildurl("/register"),
+                type: "POST",
+                data: { 'name ': name, 'password': password, 'email': email },
+                dataType: 'json',
+                success: function (res) {
+                    var callback = null;
+                    if (res.code == 200) {
+                        callback = function () {
+                            window.location.href = common_ops.buildUrl("/");
+                            common_ops.alert(res.msg, callback)
+                        }
+                    }
                 },
-                })
             })
+        })
     </script>
 </body>
 
